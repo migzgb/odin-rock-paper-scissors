@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        console.log("testing");
+
+        // initialize 3 main choices for this game
+        const choice = ["rock", "paper", "scissors"];
+
         function getComputerChoice() {
-            // declare list of choices : rock paper or scissors
-            const choice = ["rock", "paper", "scissors"];
             // get random choice value
             const random = Math.floor(Math.random() * choice.length);
             // return value random value from choices
@@ -21,6 +22,17 @@
         console.log(getComputerChoice());
         console.log(getComputerChoice());
         console.log(getComputerChoice());
+
+        function playRound(playerSelection, computerSelection) {
+            let winResult = "";
+            // data validate playerSelection to be one of the choices
+            // while lower playerselection is not equal to any of choices, let player choose again
+            // compare values of win condition with player choice
+            // if selection is equal, TIE
+            // evaluate each choice for WIN/LOSE condition
+            // return string of win result
+        }
+
     </script>
 </head>
 <body>
