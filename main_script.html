@@ -4,34 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ROCK PAPER SCISSORS JAVASCRIPT</title>
     <script>
 
         // initialize 3 main choices for this game
         const choice = ["rock", "paper", "scissors"];
 
         function getComputerChoice() {
+            
             // get random choice value
             const random = Math.floor(Math.random() * choice.length);
+
             // return value random value from choices
             return choice[random];
         }
 
-        // testing function
+        // testing compchoice function
         console.log(getComputerChoice());
         console.log(getComputerChoice());
         console.log(getComputerChoice());
         console.log(getComputerChoice());
 
         function playRound(playerSelection, computerSelection) {
+
             let winResult = "";
-            // data validate playerSelection to be one of the choices
+
             // while lower playerselection is not equal to any of choices, let player choose again
-            // compare values of win condition with player choice
+            while (!choice.includes(playerSelection.toLowerCase())) {
+                playerSelection = prompt("Please try again. Enter rock, paper, or scissors");
+            }
+            console.log("Player chose " + playerSelection + " while the computer chose " + computerSelection);
+            
             // if selection is equal, TIE
-            // evaluate each choice for WIN/LOSE condition
-            // return string of win result
+            if (playerSelection ==  computerSelection) {
+                winResult ="TIE";
+                return winResult;
+            }
+
+            // evaluate choices for win condition
+            else if (playerSelection == "rock" && computerSelection == "scissors" || 
+                playerSelection == "paper" && computerSelection == "rock" || 
+                playerSelection == "scissors" && computerSelection == "paper") {
+                winResult = "WIN";
+                return winResult;
+            }
+
+            // rest will be losing condition
+            else {
+                winResult ="LOSE";
+                return winResult;
+            }
         }
+
+        //testing playround function
+        let playerOne = prompt("Please enter rock, paper, or scissors");
+        playRound(playerOne,getComputerChoice());
+
 
     </script>
 </head>
