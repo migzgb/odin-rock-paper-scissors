@@ -19,12 +19,6 @@
             return choice[random];
         }
 
-        // testing compchoice function
-        console.log(getComputerChoice());
-        console.log(getComputerChoice());
-        console.log(getComputerChoice());
-        console.log(getComputerChoice());
-
         function playRound(playerSelection, computerSelection) {
 
             let winResult = "";
@@ -56,11 +50,38 @@
             }
         }
 
-        //testing playround function
-        let playerOne = prompt("Please enter rock, paper, or scissors");
-        playRound(playerOne,getComputerChoice());
+        // game function
+        function game () {
+            let playerScore = 0;
+            let computerScore = 0;
+            for (let i = 0; i < 5; i++) {
+                let roundCount = i + 1;
+                let playerOne = prompt("Round " + roundCount + ": Please enter rock, paper, or scissors." + "\n Your Score: " + playerScore + " Computer's score: " + computerScore);
+                let round = playRound(playerOne,getComputerChoice())
+                if (round == "WIN") {
+                    playerScore += 1;
+                    alert(" ROUND WIN ");
+                }
+                else if (round == "LOSE") {
+                    computerScore += 1;
+                    alert(" ROUND WIN ");
+                }
+                else {
+                    alert("ROUND TIE");
+                }
+            }
+            if (playerScore > computerScore) {
+                alert(" YOU WIN ");
+            }
+            else if (playerScore = computerScore) {
+                alert(" IT'S A TIE ");
+            }
+            else {
+                alert(" YOU LOSE");
+            }
+        }
 
-
+        game();
     </script>
 </head>
 <body>
